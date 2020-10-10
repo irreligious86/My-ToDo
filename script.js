@@ -1,5 +1,7 @@
 "use strict";
+
 //import uuid from 'uuid';
+//localStorage.clear();
 
 let allUsers = [];
 let currentTodos = [];
@@ -12,7 +14,8 @@ const user = name => ({
     portfolio: [], 
     rating: null ,
     createDate: Date.now()
-});
+}
+);
 
 // push new user to array
 const pushNewUserToAllUsers = name => {
@@ -27,10 +30,10 @@ const todo = title => ({
     is_ready: false, 
     importance: Math.ceil(Math.random()*9), 
     start: function() {
-        return (this.in_work = true)
+        this.in_work = true;
       },
     finish: function() { 
-        return (this.is_ready = true)
+        this.is_ready = true;
       },
       createDate: Date.now()
 });
@@ -71,6 +74,7 @@ currentUserTask.in_work = true;
 currentUserTask.who_do_it = currentUser;
 currentUser.what_is_doing = currentUserTask;
 currentUser.rating++;
+//localStorage.setItem('currentUser.rating', currentUser.rating);
 };
 
 
